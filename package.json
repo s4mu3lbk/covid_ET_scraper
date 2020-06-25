@@ -4,7 +4,7 @@
   "description": "Covid19-Et website scraper",
   "main": "functions/server.js",
   "scripts": {
-    "build": "netlify-lambda build express",
+    "build": "netlify-lambda build koa",
     "start": "nodemon server-local.js"
   },
   "repository": {
