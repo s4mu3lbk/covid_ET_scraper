@@ -1,7 +1,7 @@
 {
   "name": "netlify-express",
   "version": "0.0.1",
-  "description": "Example of how to deploy a Express.js Netlify app.",
+  "description": "Covid19-Et website scraper",
   "main": "functions/server.js",
   "scripts": {
     "build": "netlify-lambda build express",
@@ -9,24 +9,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neverendingqs/netlify-express.git"
+    "url": "git+https://github.com/s4mu3lbk/covid_ET_scraper.git"
   },
   "keywords": [
     "netlify",
     "express.js"
   ],
-  "author": "neverendingqs",
+  "author": "Samuel Bekele",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/neverendingqs/netlify-express/issues"
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.3",
+    "koa": "^2.13.0",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^9.0.1",
+    "node-fetch": "^2.6.0",
+    "promisify": "^0.0.3",
+    "request": "^2.88.2"
   },
-  "homepage": "https://github.com/neverendingqs/netlify-express#readme",
-  "dependencies": {},
   "devDependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "netlify-lambda": "^1.6.3",
-    "nodemon": "^1.19.2",
-    "serverless-http": "^2.3.0"
+    "eslint": "^7.3.1"
   }
 }
