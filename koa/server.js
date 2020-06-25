@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const Koa = require('koa')
+const serverless = require('serverless-http');
 const Router = require('koa-router')
 const Promise = require('bluebird')
 const logger = require('koa-logger');
@@ -71,4 +72,4 @@ app.use(logger());
 app.use(router.routes());
 
 module.exports = app;
-// module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);

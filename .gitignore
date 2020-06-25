@@ -30,6 +30,8 @@ build/Release
 node_modules
 jspm_packages
 
+yarn.lock
+
 # Optional npm cache directory
 .npm
 
