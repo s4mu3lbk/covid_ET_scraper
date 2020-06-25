@@ -20,16 +20,16 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "cheerio": "^1.0.0-rc.3",
-    "koa": "^2.13.0",
     "koa-logger": "^3.2.1",
     "koa-router": "^9.0.1",
     "node-fetch": "^2.6.0",
     "promisify": "^0.0.3",
-    "request": "^2.88.2",
-    "serverless-http": "^2.5.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "eslint": "^7.3.1",
-    "netlify-lambda": "^0.4.0"
+    "netlify-lambda": "^0.4.0",
+    "serverless-http": "^2.5.0",
+    "koa": "^2.13.0"
   }
 }
