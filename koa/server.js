@@ -17,55 +17,55 @@ const covid19_et_total_url = 'https://www.covid19.et/covid-19/';
 const covid19_et_daily_url = 'https://www.covid19.et/covid-19/Home/DailyDashboard';
 
 const response = {
-    "total_tested": 0,
-    "confirmed_cases": 0,
-    "recovered": 0,
-    "deaths": 0
+  "total_tested": 0,
+  "confirmed_cases": 0,
+  "recovered": 0,
+  "deaths": 0
 }
 const response_keys = Object.keys(response)
 
 async function fetchUrl(url) {
-    return await request({
-        method: 'GET',
-        url
-    })
+  return await request({
+    method: 'GET',
+    url
+  })
 }
 
 async function totalCases(ctx, next) {
-    const res = await fetchUrl(covid19_et_total_url),
-        responseBody = res.body;
+  const res = await fetchUrl(covid19_et_total_url),
+    responseBody = res.body;
 
-    const $ = cheerio.load(responseBody);
-    const count = $('.count')
+  const $ = cheerio.load(responseBody);
+  const count = $('.count')
 
-    count.each((idx, element) => {
-        let child = element.children.pop()
-        response[response_keys[idx]] = parseInt(child.data.replace(/,/g, ''))
-    })
+  count.each((idx, element) => {
+    let child = element.children.pop()
+    response[response_keys[idx]] = parseInt(child.data.replace(/,/g, ''))
+  })
 
-    ctx.set('Content-Type', 'application/json');
-    ctx.body = JSON.stringify(response);
+  ctx.set('Content-Type', 'application/json');
+  ctx.body = JSON.stringify(response);
 
-    next();
+  next();
 }
 
 
 async function dailyCases(ctx, next) {
-    const res = await fetchUrl(covid19_et_daily_url),
-        responseBody = res.body;
+  const res = await fetchUrl(covid19_et_daily_url),
+    responseBody = res.body;
 
-    const $ = cheerio.load(responseBody)
-    const cases_count = $('.count')
+  const $ = cheerio.load(responseBody)
+  const cases_count = $('.count')
 
-    cases_count.each((idx, element) => {
-        let child = element.children.pop()
-        response[response_keys[idx]] = parseInt(child.data.replace(/,/g, ''))
-    })
+  cases_count.each((idx, element) => {
+    let child = element.children.pop()
+    response[response_keys[idx]] = parseInt(child.data.replace(/,/g, ''))
+  })
 
-    ctx.set('Content-Type', 'application/json');
-    ctx.body = JSON.stringify(response);
+  ctx.set('Content-Type', 'application/json');
+  ctx.body = JSON.stringify(response);
 
-    next();
+  next();
 }
 
 covid_routes.get('/total', totalCases);
