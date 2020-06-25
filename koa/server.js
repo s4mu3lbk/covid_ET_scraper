@@ -65,8 +65,14 @@ async function dailyCases(ctx, next) {
     next();
 }
 
+function index(ctx, next) {
+  ctx.body = 'Covid19-ET website scraper!';
+  next();
+}
+
 router.get('/total', totalCases);
 router.get('/daily', dailyCases);
+router.get('/', index);
 
 app.use(logger());
 app.use(router.routes());
